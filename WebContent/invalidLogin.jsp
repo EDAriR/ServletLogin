@@ -12,3 +12,13 @@
          </center>
 </body>
 </html>
+
+
+<!-- http://met.guc.edu.eg/OnlineTutorials/JSP%20-%20Servlets/Full%20Login%20Example.aspx
+Run the application , If you do not know any of the following steps, please check Steps 5-8 in the JSP Example
+
+Set LoginPage.jsp to be your Home page (from web.xml)
+Add your Project to Tomcat
+Start Tomcat
+Go to http://Localhost/loginExample
+Test your project -->
