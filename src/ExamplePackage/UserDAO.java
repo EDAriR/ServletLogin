@@ -20,9 +20,9 @@ public class UserDAO {
         String password = bean.getPassword();   
 	    
         String searchQuery =
-              "select * from users where username='"
+              "select * from USERS where USERNAME='"
                        + username
-                       + "' AND password='"
+                       + "' AND PASSWORD='"
                        + password
                        + "'";
 	    
@@ -49,18 +49,20 @@ public class UserDAO {
         //if user exists set the isValid variable to true
         else if (more) 
         {
-           String firstName = rs.getString("FirstName");
-           String lastName = rs.getString("LastName");
-	     	
-           System.out.println("Welcome " + firstName);
-           bean.setFirstName(firstName);
-           bean.setLastName(lastName);
+        	
+//           String firstName = rs.getString("FirstName");
+//           String lastName = rs.getString("LastName");
+        	String lastName = rs.getString("username");
+//           System.out.println("Welcome " + firstName);
+//           bean.setFirstName(firstName);
+           bean.setLastName(lastName+"HELLO WORLD");
            bean.setValid(true);
         }
      } 
 
      catch (Exception ex) 
      {
+    	 ex.printStackTrace();
         System.out.println("Log In failed: An Exception has occurred! " + ex);
      } 
 	    

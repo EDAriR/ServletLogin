@@ -3,6 +3,10 @@ package ExamplePackage;
 import java.sql.*;
 import java.util.*;
 
+import javax.naming.Context;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 public class ConnectionManager {
 	
 	/*
@@ -17,35 +21,19 @@ public class ConnectionManager {
 	            
 	      public static Connection getConnection()
 	      {
-	        
-	         try
-	         {
-	            String url = "jdbc:odbc:" + "DataSource"; 
-	            // assuming "DataSource" is your DataSource name
+	  		try {
+				Context ctx = new javax.naming.InitialContext();
+				DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
 
-	            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-	            
-	            try
-	            {            	
-	               con = DriverManager.getConnection(url,"username","password"); 
-	                								
-	            // assuming your SQL Server's	username is "username"               
-	            // and password is "password"
-	                 
-	            }
-	            
-	            catch (SQLException ex)
-	            {
-	               ex.printStackTrace();
-	            }
-	         }
-
-	         catch(ClassNotFoundException e)
-	         {
-	            System.out.println(e);
-	         }
-
-	      return con;
-	}
+				con = ds.getConnection();
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return con;
+		}
 
 }
