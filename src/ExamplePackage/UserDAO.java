@@ -50,11 +50,11 @@ public class UserDAO {
         else if (more) 
         {
         	
-//           String firstName = rs.getString("FirstName");
-//           String lastName = rs.getString("LastName");
-        	String lastName = rs.getString("username");
-//           System.out.println("Welcome " + firstName);
-//           bean.setFirstName(firstName);
+           String firstName = rs.getString("FirstName");
+           String lastName = rs.getString("LastName");
+//        	String lastName = rs.getString("username");
+           System.out.println("Welcome " + firstName);
+           bean.setFirstName(firstName);
            bean.setLastName(lastName+"HELLO WORLD");
            bean.setValid(true);
         }
